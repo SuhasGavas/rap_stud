@@ -1,0 +1,65 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{ typeName: 'Student',
+                 typeNamePlural: 'Students',
+                 title:{ label: 'Student',
+                         type: #STANDARD,
+                         value: 'Lname' } }
+annotate entity z114_cstud with
+{
+
+  @UI.facet: [{ id: 'student',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Student',
+                position: 10 },
+
+                { id: 'subject',
+                purpose: #STANDARD,
+                type: #LINEITEM_REFERENCE,
+                label: 'Subject',
+                position: 20,
+                targetElement: '_sub' }]
+
+  @UI:{ lineItem: [{ position: 10, label: 'Id' }],
+        identification: [{ position: 10, label: 'Id' }] }
+  Id;
+
+  @UI:{ lineItem: [{ position: 20, label: 'Fname' }],
+      identification: [{ position: 20, label: 'Fname' }] }
+  Fname;
+
+  @UI:{ lineItem: [{ position: 30, label: 'Lname' }],
+    identification: [{ position: 30, label: 'Lname' }] }
+  Lname;
+
+  @UI:{ lineItem: [{ position: 40, label: 'Class' }],
+    identification: [{ position: 40, label: 'Class' }] }
+  Class;
+
+  @UI:{ lineItem: [{ position: 50, label: 'ClassDesc' }],
+    identification: [{ position: 50, label: 'ClassDesc' }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'z114_iclass', element: 'value_low' },
+                                       additionalBinding: [{ element: 'text', localElement: 'ClassDesc' }] }]
+  ClassDesc;
+
+  @UI:{ lineItem: [{ position: 60, label: 'Div' }],
+    identification: [{ position: 60, label: 'Div' }] }
+  Div;
+
+  @UI:{ lineItem: [{ position: 70, label: 'DivDesc' }],
+    identification: [{ position: 70, label: 'DivDesc' }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'z114_idiv', element: 'value_low' },
+                                     additionalBinding: [{ element: 'text', localElement: 'DivDesc' }] }]
+  DivDesc;
+
+  @UI:{ lineItem: [{ position: 80, label: 'House' }],
+    identification: [{ position: 80, label: 'House' }] }
+  House;
+
+  @UI:{ lineItem: [{ position: 90, label: 'HouseDesc' }],
+    identification: [{ position: 90, label: 'HouseDesc' }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'z114_ihouse', element: 'value_low' },
+                                     additionalBinding: [{ element: 'text', localElement: 'HouseDesc' }] }]
+  HouseDesc;
+
+}

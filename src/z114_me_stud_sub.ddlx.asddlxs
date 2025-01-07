@@ -1,0 +1,42 @@
+@Metadata.layer: #CORE
+@UI.headerInfo:{ typeName: 'Subject',
+                 typeNamePlural: 'Subjects',
+                 title:{ label: 'Subject',
+                         type: #STANDARD,
+                         value: 'Subject' } }
+annotate entity z114_cstud_sub with
+{
+  @UI.facet: [{ id: 'subject',
+                purpose: #STANDARD,
+                type: #IDENTIFICATION_REFERENCE,
+                label: 'Subject',
+                position: 10 }]
+  @UI:{ lineItem: [{ position: 10, label: 'Id' }],
+      identification: [{ position: 10, label: 'Id' }] }
+  Id;
+
+  @UI:{ lineItem: [{ position: 20, label: 'StudId' }],
+      identification: [{ position: 20, label: 'StudId' }] }
+  StudId;
+
+  @UI:{ lineItem: [{ position: 30, label: 'Subject' }],
+      identification: [{ position: 30, label: 'Subject' }] }
+  Subject;
+
+  @UI:{ lineItem: [{ position: 40, label: 'SubDesc' }],
+      identification: [{ position: 40, label: 'SubDesc' }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'z114_isubject', element: 'value_low' },
+                                       additionalBinding: [{ element: 'text', localElement: 'SubDesc' }] }]
+  SubDesc;
+
+  @UI:{ lineItem: [{ position: 50, label: 'Grade' }],
+      identification: [{ position: 50, label: 'Grade' }] }
+  Grade;
+
+  @UI:{ lineItem: [{ position: 60, label: 'GradeDesc' }],
+      identification: [{ position: 60, label: 'GradeDesc' }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ name: 'z114_igrade', element: 'value_low' },
+                                        additionalBinding: [{ element: 'text', localElement: 'GradeDesc' }] }]
+  GradeDesc;
+
+}

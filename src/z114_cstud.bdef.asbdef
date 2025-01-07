@@ -1,0 +1,19 @@
+projection;
+strict ( 2 );
+
+define behavior for z114_cstud alias stud
+{
+  use create;
+  use update;
+  use delete;
+
+  use association _sub { create; }
+}
+
+define behavior for z114_cstud_sub alias sub
+{
+  use update;
+  use delete;
+
+  use association _stud;
+}

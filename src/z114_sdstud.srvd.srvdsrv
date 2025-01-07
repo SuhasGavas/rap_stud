@@ -1,0 +1,10 @@
+@EndUserText.label: 'Service definition for student'
+define service Z114_sdstud {
+  expose z114_cstud;
+  expose z114_cstud_sub;
+  expose z114_iclass;
+  expose z114_idiv;
+  expose z114_ihouse;
+  expose z114_isubject;
+  expose z114_igrade;
+}

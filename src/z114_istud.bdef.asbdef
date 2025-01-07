@@ -1,0 +1,47 @@
+managed implementation in class zbp_114_istud unique;
+strict ( 2 );
+
+define behavior for z114_istud alias stud
+persistent table z114_stud
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  create;
+  update;
+  delete;
+  field ( readonly, numbering : managed ) Id;
+  field ( readonly ) ClassDesc, DivDesc, HouseDesc;
+  association _sub { create; }
+
+  mapping for z114_stud
+    {
+      Id      = id;
+      Fname   = fname;
+      Lname   = lname;
+      Class   = class;
+      Div     = div;
+      House   = house;
+    }
+}
+
+define behavior for z114_istud_sub alias sub
+persistent table z114_stud_sub
+lock dependent by _stud
+authorization dependent by _stud
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly, numbering : managed ) Id;
+  field ( readonly ) StudId, GradeDesc, SubDesc;
+  association _stud;
+
+  mapping for z114_stud_sub
+    {
+      Id      = id;
+      StudId  = stud_id;
+      Subject = subject;
+      Grade   = grade;
+    }
+}
